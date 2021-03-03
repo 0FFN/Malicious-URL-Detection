@@ -8,7 +8,7 @@ print(Fore.YELLOW + r'''
 / ___)(  / )(  )(    \  (  __)/ )( \ / __)(  / )(  __)(  _ \
 \___ \ )  (  )(  ) D (   ) _) ) \/ (( (__  )  (  ) _)  )   /
 (____/(__\_)(__)(____/  (__)  \____/ \___)(__\_)(____)(__\_)
-IP Pulling detection By 0WNED//Zexor321. All unshortening requests go through a server, not through your network. (:-3)
+IP Pulling detection By 0WNED. All unshortening requests go through a server, not through your network. (:-3)
 ''')
 
 wait(1)
