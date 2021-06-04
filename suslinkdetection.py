@@ -26,6 +26,9 @@ elif('iplogger' in url or '2no' in url or 'yip.su' in url or 'iplis' in url or '
     print(Fore.RED +"\n[!] Malicious Link Detected => iplogger.org URL!. SKID ALERT!!!")
     print(Fore.YELLOW +"[?] => Use unshorten.it for endpoint.")
     wait(99999)
+elif('pnrt.scr' in url):
+    print('\n[i] Screamer detected, not malicious jumpscare.')
+    wait(99999)
 else:
     print("\n[I] No immediate threats detected in link, unshortening and doing more checks...")
     reqloc = 'https://unshorten.me/s/%s' % (url)
@@ -38,6 +41,9 @@ else:
     elif('grabify' in resp or 'cutt.ly' in resp or 'gestyy' in resp or 'anthargo' in resp or 'bc.vc' in resp or 'soo.gd' in resp or 'ouo.io' in resp or 'zzb.bz' in resp or 'adfoc.us' in resp):
         print(Fore.RED +"\n[!] Malicious Link Detected => grabify.link URL!. SKID ALERT!!!")
         print(Fore.YELLOW +"[?] => Use unshorten.it for endpoint because of Grabify dual layer shit.")
+        wait(99999)
+    elif('pnrt.scr' in url):
+        print('\n[i] Screamer detected, not malicious jumpscare.')
         wait(99999)
     else:
         print(Fore.GREEN + "\n[:)] Link is likely safe from IP Loggers, to be sure, use unshorten.it after reading below.")
