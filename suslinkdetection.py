@@ -3,6 +3,9 @@ from time import sleep as wait
 from colorama import Fore, init
 init()
 
+grabify = ["grabify", "cutt.ly", "gestyy", "anthargo", "bc.vc", "soo.gd", "ouo.io", "zzb.bz", "adfoc.us"]
+iploggerorg = ["iplogger", "2no", "yip.su", "iplis", "02ip", "ezstat.ru"]
+
 print(Fore.YELLOW + r'''
  ____  __ _  __  ____    ____  _  _   ___  __ _  ____  ____ 
 / ___)(  / )(  )(    \  (  __)/ )( \ / __)(  / )(  __)(  _ \
@@ -18,35 +21,37 @@ wait(0.5)
 url = str(InputtedUrl)
 print("\n>>> Checking link for suspicious endpoints... ")
 
-if('grabify' in url or 'cutt.ly' in url or 'gestyy' in url or 'anthargo' in url or 'bc.vc' in url or 'soo.gd' in url or 'ouo.io' in url or 'zzb.bz' in url or 'adfoc.us' in url):
-    print(Fore.RED +"\n[!] Malicious Link Detected => grabify.link URL!. SKID ALERT!!!")
-    print(Fore.YELLOW +"[?] => Use unshorten.it for endpoint because of Grabify dual layer shit.")
-    wait(99999)
-elif('iplogger' in url or '2no' in url or 'yip.su' in url or 'iplis' in url or '02ip' in url or 'ezstat.ru' in url):
-    print(Fore.RED +"\n[!] Malicious Link Detected => iplogger.org URL!. SKID ALERT!!!")
-    print(Fore.YELLOW +"[?] => Use unshorten.it for endpoint.")
-    wait(99999)
-elif('pnrtscr.com' in url):
-    print('\n[i] Screamer detected, not malicious jumpscare.')
-    wait(99999)
-else:
-    print("\n[I] No immediate threats detected in link, unshortening and doing more checks...")
-    reqloc = 'https://unshorten.me/s/%s' % (url)
-    r = requests.get(reqloc)
-    resp = str(r.text)
-    if('iplogger' in resp or '2no' in resp or 'yip.su' in resp or 'iplis' in resp or '02ip' in resp or 'ezstat.ru' in resp):
-        print(Fore.RED +"\n[!] Malicious Link Detected => iplogger.org URL with attempted dual layer hide!. SKID ALERT!!!")
-        print(Fore.YELLOW +"[?] => Use unshorten.it for endpoint because of dual layer shit.")
-        wait(99999)
-    elif('grabify' in resp or 'cutt.ly' in resp or 'gestyy' in resp or 'anthargo' in resp or 'bc.vc' in resp or 'soo.gd' in resp or 'ouo.io' in resp or 'zzb.bz' in resp or 'adfoc.us' in resp):
+for domain in grabify:
+    if domain in url:
         print(Fore.RED +"\n[!] Malicious Link Detected => grabify.link URL!. SKID ALERT!!!")
         print(Fore.YELLOW +"[?] => Use unshorten.it for endpoint because of Grabify dual layer shit.")
         wait(99999)
-    elif('pnrtscr.com' in url):
-        print('\n[i] Screamer detected, not malicious jumpscare.')
+for domain in iploggerorg:
+    if domain in url:
+        print(Fore.RED +"\n[!] Malicious Link Detected => iplogger.org URL!. SKID ALERT!!!")
+        print(Fore.YELLOW +"[?] => Use unshorten.it for endpoint.")
         wait(99999)
-    else:
-        print(Fore.GREEN + "\n[:)] Link is likely safe from IP Loggers, to be sure, use unshorten.it after reading below.")
-        print(Fore.RED + "Endpoint => %s, if the endpoint is already short, why would they shorten it? Dual-layed iplogger.org formats are untraceable!!!")
+if('pnrtscr.com' in url):
+    print('\n[i] Screamer detected, not malicious jumpscare.')
+    wait(99999)
+
+print("\n[I] No immediate threats detected in link, unshortening and doing more checks...")
+reqloc = 'https://unshorten.me/s/%s' % (url)
+r = requests.get(reqloc)
+resp = str(r.text)
+for domain in iploggerorg:
+    if domain in resp:
+        print(Fore.RED +"\n[!] Malicious Link Detected => iplogger.org URL with attempted dual layer hide!. SKID ALERT!!!")
+        print(Fore.YELLOW +"[?] => Use unshorten.it for endpoint because of dual layer shit.")
         wait(99999)
-# -- End Of script.
+for domain in grabify:
+    if domain in resp:
+        print(Fore.RED +"\n[!] Malicious Link Detected => grabify.link URL!. SKID ALERT!!!")
+        print(Fore.YELLOW +"[?] => Use unshorten.it for endpoint because of Grabify dual layer shit.")
+        wait(99999)
+if('pnrtscr.com' in resp):
+    print('\n[i] Screamer detected, not malicious jumpscare.')
+    wait(99999)
+print(Fore.GREEN + "\n[:)] Link is likely safe from IP Loggers, to be sure, use unshorten.it after reading below.")
+print(Fore.RED + "Endpoint => %s, if the endpoint is already short, why would they shorten it? Dual-layed iplogger.org formats are untraceable!!!")
+wait(99999)
