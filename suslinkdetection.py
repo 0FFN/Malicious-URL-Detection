@@ -1,6 +1,8 @@
 import requests
 from time import sleep as wait
 from colorama import Fore, init
+from os import system
+system("title "+"Arc's Malicious Link Detection")
 init()
 
 grabify = ["grabify", "cutt.ly", "gestyy", "anthargo", "bc.vc", "soo.gd", "ouo.io", "zzb.bz", "adfoc.us"]
